@@ -52,22 +52,16 @@
   .about p{max-width:70ch;}
   .about-grid{
     display:grid;
-    grid-template-columns:1fr 300px;
+    grid-template-columns:1fr 520px;
     gap:2.4rem;
     align-items:start;
   }
   .about-grid p{max-width:none;}
   .about-figure{border:1px solid var(--line); background:var(--card);}
   .about-figure img{width:100%; display:block;}
-  .about-figure figcaption{
-    padding:0.7rem 0.9rem;
-    font-family:'Courier New',monospace;
-    font-size:0.78rem;
-    color:var(--graphite);
-  }
   @media (max-width:760px){
     .about-grid{grid-template-columns:1fr;}
-    .about-figure{max-width:340px;}
+    .about-figure{max-width:100%;}
   }
 
   .project-block{margin-bottom:3.2rem;}
@@ -193,7 +187,6 @@
     </p>
     <figure class="about-figure">
       <img src="berkeley-engineering-post.png" alt="UC Berkeley Engineering feature post">
-      <figcaption>Featured in UC Berkeley Engineering's "@ Me" series.</figcaption>
     </figure>
   </div>
 </section>
@@ -358,7 +351,7 @@ const projects = {
   ],
   fridge: [
     {src:"iot-database.png", caption:"Firebase real-time database logging temperature, humidity, and door status."},
-    {src:"iot.jpg", caption:"ESP32 smart fridge tracker hardware, featuring two ESP32 microcontrollers that communicate wirelessly with each other. "}
+    {src:"iot.jpg", caption:"ESP32 smart fridge tracker hardware, featuring two ESP32 microcontrollers that communicate wirelessly with each other."}
   ],
   drone: [
     {src:"mechanism-complete-demo.mp4", caption:"Completed seed-release mechanism in operation.", video:true},
