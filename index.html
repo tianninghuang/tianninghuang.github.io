@@ -64,28 +64,36 @@
 
   .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
-    gap:0.7rem;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:1rem;
   }
   .gallery button{
     all:unset;
     cursor:pointer;
-    aspect-ratio:4/3;
-    overflow:hidden;
+    display:flex;
+    flex-direction:column;
     border:1px solid var(--line);
     background:var(--card);
-    position:relative;
   }
-  .gallery button img, .gallery button video{
+  .gallery button .thumb{
+    position:relative;
+    width:100%;
+    aspect-ratio:4/3;
+    overflow:hidden;
+  }
+  .gallery button .thumb img, .gallery button .thumb video{
     width:100%; height:100%; object-fit:cover; display:block;
     transition:transform 0.25s ease;
   }
-  .gallery button:hover img, .gallery button:hover video{transform:scale(1.04);}
+  .gallery button:hover .thumb img, .gallery button:hover .thumb video{transform:scale(1.04);}
   .gallery button .cap{
-    position:absolute; left:0; right:0; bottom:0;
-    background:linear-gradient(transparent, rgba(28,34,38,0.82));
-    color:#f6f5f1; font-family:'Courier New',monospace; font-size:0.72rem;
-    padding:1.2rem 0.5rem 0.4rem; text-align:left;
+    display:block;
+    padding:0.7rem 0.85rem;
+    font-family:'Courier New',monospace;
+    font-size:0.78rem;
+    line-height:1.45;
+    color:var(--graphite);
+    text-align:left;
   }
   .gallery button .playbadge{
     position:absolute; top:0.4rem; right:0.4rem;
@@ -152,14 +160,15 @@
 <section class="about" id="about">
   <h2>About</h2>
   <p>
-    Welcome to Tianning's personal portfolio! I'm a senior Mechanical Engineering student
-    (minoring in Electrical Engineering) at UC Berkeley with experience in mechanical design,
-    CAD/FEA, materials engineering, robotics, control systems, micro-fabrication processing,
-    and manufacturing. I bring strong analytical and problem-solving skills, along with
-    experience in MATLAB, Python, LabVIEW, Fusion 360, SolidWorks, and experimental research.
-    Driven by curiosity and a strong sense of purpose, I've built a diverse skill set by
-    always seeking out new things to learn. I'm eager to contribute to a dynamic engineering
-    team!
+    This page presents an overview of my academic and professional background as a senior
+    Mechanical Engineering student (minoring in Electrical Engineering) at UC Berkeley, with
+    experience in mechanical design, CAD/FEA, materials engineering, robotics, control systems,
+    micro-fabrication processing, and manufacturing. I bring strong analytical and
+    problem-solving skills, along with experience in MATLAB, Python, LabVIEW, Fusion 360,
+    SolidWorks, and experimental research. Driven by curiosity and a strong sense of purpose,
+    I have built a diverse skill set by continually seeking out new areas to learn, and I would
+    welcome the opportunity to contribute to a dynamic engineering team. I invite you to take a
+    look at my projects and research results below.
   </p>
 </section>
 
@@ -289,8 +298,8 @@
 // ---- Image/video data per project. Edit filenames + captions here. ----
 const projects = {
   flowlab: [
-    {src:"material-energy.png", caption:"Material / energy-level decomposition from multi-spectral X-ray CT data."},
-    {src:"meanmatrix.png", caption:"Mean matrix output from the segmentation pipeline."},
+    {src:"material-energy.png", caption:"Solved material composition coefficients via linear least-squares against calibration basis vectors — recovers per-pixel material fractions from multi-energy attenuation data."},
+    {src:"meanmatrix.png", caption:"Per-material mean intensity matrix aggregated across calibration samples — serves as the basis set for material decomposition."},
     {src:"top-down-view.png", caption:"Top-down view of segmented 3D microstructure."},
     {src:"all-together-good.png", caption:"Combined segmentation result across structures."},
     {src:"cross-section.png", caption:"Cross-sectional slice showing crystalline vs. organic regions."}
@@ -301,25 +310,25 @@ const projects = {
     {src:"gamelanhand.png", caption:"Puppet hand assembly, CAD'd in Blender for controlled striking motion."}
   ],
   calsol: [
-    {src:"insert-old.png", caption:"Original insert design — starting point before redesign."},
-    {src:"one-hole-bottom-fail.png", caption:"One-hole bottom insert — failed under FEA loading."},
-    {src:"three-hole-bottom-pass.png", caption:"Three-hole bottom insert — passed FEA with required safety factor."},
-    {src:"insert-location.png", caption:"Insert placement on the steering mount."},
+    {src:"insert-old.png", caption:"Legacy steering mount suffered insufficient stiffness and poor serviceability."},
+    {src:"one-hole-bottom-fail.png", caption:"FEA validation across 10+ load cases (2G lateral crash, corner torque, bump, driver pull). One Hole Bottom Fail — FOS = 0.11."},
+    {src:"three-hole-bottom-pass.png", caption:"Identified unrealistic single-hole failure modes and confirmed the realistic three-hole distributed load case passes with FOS > 2. Three Hole Bottom Pass — FOS = 2.1."},
+    {src:"insert-location.png", caption:"Redesigned insert layout to react x-direction loads while reusing existing z-direction inserts."},
     {src:"insert-location-2.png", caption:"Insert placement, alternate view."},
-    {src:"insert-male-female-component.png", caption:"Male/female insert component detail."},
-    {src:"resultant-design.png", caption:"Final resultant steering mount design — ~22.5% weight reduction."}
+    {src:"insert-male-female-component.png", caption:"Custom insert geometry (0.6 in sandwich thickness) designed and validated for a 2000N bearing shear load, minimum FOS = 1.1."},
+    {src:"resultant-design.png", caption:"Final two-piece mount design — 0.78 lb, assembled via two shoulder screws with safety wire."}
   ],
   wearable: [
     {src:"health-monitoring-wearable.png", caption:"Wearable hardware — PPG, IMU, and LDR sensor integration."},
     {src:"health-monitoring-wearable-labview.png", caption:"LabVIEW GUI for real-time heart rate, SpO₂, and motion visualization."}
   ],
   tpms: [
-    {src:"tpms.png", caption:"TPMS lattice geometry."},
-    {src:"thermal-camera.png", caption:"Thermal camera imaging of the physical sample."},
+    {src:"tpms.png", caption:"FRD (R30) was the only lattice to meaningfully block heat, with a 40% cooler back-face temperature."},
+    {src:"thermal-camera.png", caption:"FLIR AX5 infrared imaging at early, mid, and late trial stages (5% / 45% / 90%), calibrated from raw 16-bit sensor counts to absolute temperature via a two-point linear fit. Provides direct visual confirmation of the heat propagation patterns inferred from thermocouple data."},
     {src:"heat.png", caption:"Heat transfer visualization."},
     {src:"conductionresults.png", caption:"Conduction simulation results."},
-    {src:"conjugate-heat-transfer.png", caption:"Conjugate heat transfer simulation, view 1."},
-    {src:"conjugate-heat-transfer-2.png", caption:"Conjugate heat transfer simulation, view 2."}
+    {src:"conjugate-heat-transfer.png", caption:"Raw front/back temperature and ΔT curves across five geometries (Solid, Sleeve, Gyroid, FRD) over a 300s heating trial, with propagated measurement uncertainty shown as shaded bands. FRD shows a visibly larger and more persistent ΔT than the other lattices — the first signal that topology, not just density, affects heat blocking."},
+    {src:"conjugate-heat-transfer-2.png", caption:"Two normalization schemes applied to isolate real geometric effects from experimental noise: dividing by the empty-rig (Sleeve) response removes heat-gun power variability, and self-normalizing each curve to its own steady-state value yields a comparable half-rise time across samples. Only FRD R30 remains meaningfully slower after both corrections — confirming its heat-blocking effect isn't an artifact of test conditions."}
   ],
   fridge: [
     {src:"iot-database.png", caption:"Firebase real-time database logging temperature, humidity, and door status."},
@@ -340,11 +349,11 @@ document.querySelectorAll(".gallery").forEach(galleryEl => {
     const btn = document.createElement("button");
     btn.type = "button";
     if(item.video){
-      btn.innerHTML = `<video src="${item.src}" muted playsinline preload="metadata"></video>
-        <span class="playbadge">▶ video</span>
+      btn.innerHTML = `<div class="thumb"><video src="${item.src}" muted playsinline preload="metadata"></video>
+        <span class="playbadge">▶ video</span></div>
         <span class="cap">${item.caption}</span>`;
     } else {
-      btn.innerHTML = `<img src="${item.src}" alt="${item.caption}" loading="lazy">
+      btn.innerHTML = `<div class="thumb"><img src="${item.src}" alt="${item.caption}" loading="lazy"></div>
         <span class="cap">${item.caption}</span>`;
     }
     btn.addEventListener("click", () => openLightbox(key, i));
