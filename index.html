@@ -189,7 +189,7 @@
       constantly seeking out new challenges that push me beyond what I already know. I thrive in 
       environments where engineers bring different perspectives, challenge one another, and work together
       to build something meaningful. Explore my projects and research below to see what I have built, 
-      investigated, and learned along the way.
+      investigated, and learned along the way!
     </p>
     <figure class="about-figure">
       <img src="berkeley-engineering-post.png" alt="UC Berkeley Engineering feature post">
@@ -208,7 +208,7 @@
       Investigating SARS-CoV-2-containing respiratory droplet residues using X-ray CT
       microtomography. Built an end-to-end MATLAB pipeline turning raw multi-spectral CT
       slices into material composition and energy-level data, and performed 3D segmentation
-      of bacterial structures across consecutive slices.
+      of image processing.
     </p>
     <div class="links">
       <a href="./docs:flowlab-tianning-huang.docx">Full write-up (.docx)</a>
@@ -258,7 +258,7 @@
     <div class="meta">Thermal / Fluids · CFD · Lattice Structures</div>
     <p class="desc">
       Studied triply periodic minimal surface (TPMS) lattice geometry for heat exchanger
-      applications, modeling conjugate heat transfer and comparing conduction results against
+      applications, modeling conjugate heat transfer and comparing conduction results with
       thermal camera imaging.
     </p>
     <div class="gallery" data-project="tpms"></div>
@@ -278,7 +278,7 @@
     <h3>Reforestation Seed Delivery Drone</h3>
     <div class="meta">Mechanism Design · CAD</div>
     <p class="desc">
-      Drone-mounted mechanism for aerial seed delivery, designed to reliably meter and release
+      Drone mounted mechanism for aerial seed delivery, designed to reliably meter and release
       seed payloads for reforestation. Video below shows the completed mechanism in operation.
     </p>
     <div class="gallery" data-project="drone"></div>
@@ -327,11 +327,11 @@ const projects = {
     {src:"material-energy.png", caption:"Solved material composition coefficients via linear least-squares against calibration basis vectors — recovers per-pixel material fractions from multi-energy attenuation data."},
     {src:"meanmatrix.png", caption:"Per-material mean intensity matrix aggregated across calibration samples — serves as the basis set for material decomposition."},
     {src:"top-down-view.png", caption:"Top-down view of segmented 3D microstructure."},
-    {src:"all-together-good.png", caption:"Combined segmentation result across structures."},
-    {src:"cross-section.png", caption:"Cross-sectional slice showing crystalline vs. organic regions."}
+    {src:"all-together-good.png", caption:"Combined segmentation result across structures: amorphous phase(blue), crystal(red), substrate(yellow)"},
+    {src:"cross-section.png", caption:"Cross-sectional slice in X-Ray CT Scan"}
   ],
   gamelan: [
-    {src:"puppet.png", caption:"Robotic gamelan puppet — full assembly."},
+    {src:"puppet.png", caption:"Robotic gamelan puppet"},
     {src:"motor.png", caption:"Motor and drive mechanism for the striking arm."},
     {src:"gamelanhand.png", caption:"Puppet hand assembly, CAD'd in Blender for controlled striking motion."}
   ],
@@ -358,7 +358,7 @@ const projects = {
   ],
   fridge: [
     {src:"iot-database.png", caption:"Firebase real-time database logging temperature, humidity, and door status."},
-    {src:"iot.jpg", caption:"ESP32 smart fridge tracker hardware."}
+    {src:"iot.jpg", caption:"ESP32 smart fridge tracker hardware, featuring two ESP32 microcontrollers that communicate wirelessly with each other. "}
   ],
   drone: [
     {src:"mechanism-complete-demo.mp4", caption:"Completed seed-release mechanism in operation.", video:true},
