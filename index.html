@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tianning Huang</title>
+<style>
+  :root{
+    --ink:#1c2226;
+    --paper:#f6f5f1;
+    --line:#c9cdd0;
+    --brass:#a8631f;
+    --graphite:#3a4750;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Georgia', 'Times New Roman', serif;
+    line-height:1.6;
+  }
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--brass); outline-offset:2px;}
+
+  header{
+    padding:5rem 6vw 3rem;
+    border-bottom:1px solid var(--line);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:32px 32px;
+    background-color:var(--paper);
+  }
+  header h1{
+    font-size:clamp(2.2rem, 5vw, 3.4rem);
+    font-weight:400;
+    letter-spacing:-0.01em;
+  }
+  header p.role{
+    margin-top:0.6rem;
+    font-family:'Courier New', monospace;
+    font-size:0.95rem;
+    color:var(--graphite);
+  }
+  nav{
+    margin-top:1.8rem;
+    display:flex;
+    gap:1.4rem;
+    flex-wrap:wrap;
+    font-family:'Courier New', monospace;
+    font-size:0.85rem;
+  }
+  nav a{
+    color:var(--graphite);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  nav a:hover{border-bottom-color:var(--brass); color:var(--brass);}
+
+  section{
+    max-width:780px;
+    margin:0 auto;
+    padding:3.4rem 6vw;
+  }
+  section h2{
+    font-size:1.1rem;
+    font-weight:400;
+    color:var(--brass);
+    border-bottom:1px solid var(--line);
+    padding-bottom:0.6rem;
+    margin-bottom:1.6rem;
+  }
+  .about p{max-width:64ch;}
+
+  .project{
+    padding:1.5rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  .project:last-child{border-bottom:none;}
+  .project h3{font-weight:400; font-size:1.15rem;}
+  .project .meta{
+    font-family:'Courier New', monospace;
+    font-size:0.82rem;
+    color:var(--graphite);
+    margin:0.35rem 0 0.6rem;
+  }
+  .project ul{max-width:64ch; padding-left:1.1rem;}
+  .project li{margin-bottom:0.3rem;}
+
+  .exp-item{padding:1.1rem 0; border-bottom:1px solid var(--line);}
+  .exp-item:last-child{border-bottom:none;}
+  .exp-item h3{font-weight:400; font-size:1.05rem;}
+  .exp-item .meta{
+    font-family:'Courier New', monospace;
+    font-size:0.8rem;
+    color:var(--graphite);
+    margin-top:0.2rem;
+  }
+  .exp-item p{max-width:64ch; margin-top:0.4rem; font-size:0.97rem;}
+
+  .edu .meta{
+    font-family:'Courier New', monospace;
+    font-size:0.82rem;
+    color:var(--graphite);
+    margin:0.3rem 0 0.8rem;
+  }
+  .edu p{max-width:64ch; font-size:0.95rem;}
+
+  .skills-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:1.6rem;
+  }
+  .skills-grid h4{
+    font-weight:400;
+    font-size:0.85rem;
+    color:var(--brass);
+    font-family:'Courier New', monospace;
+    margin-bottom:0.5rem;
+  }
+  .skills-grid ul{list-style:none; font-size:0.92rem;}
+  .skills-grid li{margin-bottom:0.25rem;}
+  @media (max-width:600px){
+    .skills-grid{grid-template-columns:1fr;}
+  }
+
+  footer{
+    padding:3rem 6vw 4rem;
+    max-width:780px;
+    margin:0 auto;
+    font-family:'Courier New', monospace;
+    font-size:0.9rem;
+  }
+  footer a{border-bottom:1px solid var(--line);}
+  footer a:hover{color:var(--brass); border-bottom-color:var(--brass);}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Tianning Huang</h1>
+  <p class="role">Mechanical Engineering, UC Berkeley &mdash; Robotics / Controls / Materials Research</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="about" id="about">
+  <h2>About</h2>
+  <p>
+    I'm a mechanical engineering senior at UC Berkeley (graduating May 2026), interested in
+    mechanical systems, robotics, controls, materials, and research. I like taking a problem
+    from sketch to working hardware &mdash; from FEA on a race car steering mount to segmenting
+    3D microstructure in X-ray CT scans to building a robotic puppet that plays traditional
+    Indonesian gamelan music.
+  </p>
+</section>
+
+<section class="projects" id="projects">
+  <h2>Projects</h2>
+
+  <div class="project">
+    <h3>Robotic Gamelan Puppet</h3>
+    <div class="meta">Undergraduate Researcher, The Gamelan Project (URAP) &middot; Blender &middot; CAD &middot; Feb 2026 &ndash; Present</div>
+    <ul>
+      <li>Designing and prototyping a robotic puppet to autonomously perform traditional Indonesian gamelan music, translating musical mechanics into an automated system.</li>
+      <li>Modeled and CAD'd the puppet hand assembly in Blender to enable precise, controlled striking motion for instrument performance.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <h3>CalSol Excalibur &mdash; Steering Rack Redesign</h3>
+    <div class="meta">UC Berkeley Solar Vehicle Team &middot; SolidWorks &middot; ANSYS (FEA) &middot; CNC &middot; Aug 2024 &ndash; Feb 2025</div>
+    <ul>
+      <li>Redesigned the steering mount for insufficient stiffness and inaccessibility, running case analysis across crash forces, cornering torque, and bump loading.</li>
+      <li>Shifted from torque/force-based load cases to a remote load case to more accurately capture torsional effects on the mounting holes.</li>
+      <li>Ran FEA with a 2000N bearing load to replicate maximum shear conditions, holding a safety factor of 1.1 while cutting weight by about 22.5%.</li>
+      <li>CNC-milled the mount from 2024 T351 aluminum and lathed inserts from 7075 aluminum; installed the full assembly on the race car.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <h3>X-ray CT Segmentation of Airborne Virus Residues</h3>
+    <div class="meta">Undergraduate Researcher, FLOWLab &middot; MATLAB &middot; ORS Dragonfly &middot; Napari &middot; Feb 2025 &ndash; Present</div>
+    <ul>
+      <li>Investigating SARS-CoV-2-containing respiratory droplet residues using X-ray CT microtomography to characterize crystalline and organic microstructure.</li>
+      <li>Built an end-to-end MATLAB pipeline turning raw multi-spectral CT slices into material composition and energy-level data, using a regularized least-squares method to estimate volume fractions.</li>
+      <li>Performed 3D segmentation of bacterial structures across consecutive CT slices to generate training data for machine-learning-based segmentation.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <h3>Real-Time Health Monitoring Wearable</h3>
+    <div class="meta">LabVIEW &middot; FreeRTOS &middot; Embedded Systems &middot; Jan 2025 &ndash; May 2025</div>
+    <ul>
+      <li>Designed a wearable integrating a MAX30102 PPG sensor, MPU6050 IMU, and LDR sensor for real-time physiological data acquisition.</li>
+      <li>Implemented a multitask FreeRTOS system running periodic real-time tasks: 100&nbsp;Hz heart-rate sampling and 50&nbsp;Hz motion sensing.</li>
+      <li>Built a LabVIEW GUI for live visualization of heart rate (BPM), SpO&#8322;, and motion metrics.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <h3>Smart Fridge Tracker</h3>
+    <div class="meta">IoT &middot; ESP32 &middot; MicroPython &middot; Firebase &middot; Aug 2024 &ndash; Dec 2024</div>
+    <ul>
+      <li>Built an ESP32 system to monitor fridge temperature, humidity, and door status using DHT11 and photoresistor sensors.</li>
+      <li>Used Google Firebase for real-time data logging and expiration-date tracking.</li>
+      <li>Designed a MicroPython web server for logging food items, with automated alerts via email, OLED display, LEDs, and speaker.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <h3>CalSol Skid Modeling &amp; Welding / Pedal Box</h3>
+    <div class="meta">UC Berkeley Solar Vehicle Team &middot; SolidWorks &middot; Welding &middot; Nov 2024 &ndash; Aug 2025</div>
+    <ul>
+      <li>3D-modeled and welded the skid to fit the mold of the 11th-generation electric race car shell.</li>
+      <li>Designed and manufactured the pedal box assembly, including pedals and integration with the brake components.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <h2>Experience</h2>
+
+  <div class="exp-item">
+    <h3>Tutor / Reader &mdash; ME 132 (Dynamic Systems &amp; Feedback Control), ME 102B (Mechatronics Design)</h3>
+    <div class="meta">UC Berkeley Mechanical Engineering &middot; Jun 2026 &ndash; Present</div>
+    <p>Grade and evaluate student work in dynamic systems and controls; assist with mechatronics lab activities and give technical feedback on design, troubleshooting, and project execution.</p>
+  </div>
+
+  <div class="exp-item">
+    <h3>Teaching Assistant</h3>
+    <div class="meta">UC Berkeley M.E.T. Program &middot; May 2025 &ndash; Present</div>
+    <p>Selected as one of six UC Berkeley students to support a summer program for high schoolers in tech and entrepreneurship. Co-developed lesson plans and led sessions on design and manufacturing, guiding students from ideation through prototyping to a panel presentation.</p>
+  </div>
+
+  <div class="exp-item">
+    <h3>Student Ambassador</h3>
+    <div class="meta">Autodesk &middot; May 2025 &ndash; Present</div>
+    <p>Representing Autodesk on campus, connecting students with CAD and design tools used across the engineering program.</p>
+  </div>
+</section>
+
+<section class="edu" id="education">
+  <h2>Education</h2>
+  <h3 style="font-weight:400; font-size:1.1rem;">University of California, Berkeley</h3>
+  <div class="meta">Bachelor of Engineering, Mechanical Engineering &middot; Expected May 2026</div>
+  <p>
+    Relevant coursework: Microfabrication Processing, Three-Dimensional Modeling for Design,
+    Manufacturing and Design Communication, Fluid Mechanics, Heat Transfer, Dynamic Systems
+    and Feedback Control, Electronics for the Internet of Things, Design of Microprocessor-Based
+    Mechanical Systems, Deformation and Fracture of Engineering Materials.
+  </p>
+</section>
+
+<section class="skills" id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div>
+      <h4>CAD &amp; Simulation</h4>
+      <ul>
+        <li>SolidWorks</li>
+        <li>Fusion 360</li>
+        <li>Blender</li>
+        <li>Onshape</li>
+        <li>ANSYS (FEA)</li>
+        <li>GD&amp;T</li>
+        <li>WM2D</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Manufacturing</h4>
+      <ul>
+        <li>CNC</li>
+        <li>Lathe</li>
+        <li>Milling</li>
+        <li>Welding</li>
+        <li>3D Printing</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Programming</h4>
+      <ul>
+        <li>Python</li>
+        <li>MATLAB</li>
+        <li>Java</li>
+        <li>LabVIEW</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>
+    <a href="mailto:tianningh@berkeley.edu">tianningh@berkeley.edu</a>
+    &nbsp;&middot;&nbsp; (951) 404-6070
+    &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/tianning-huang-10189a31b/">LinkedIn</a>
+    &nbsp;&middot;&nbsp; <a href="https://github.com/tianninghuang">GitHub</a>
+  </p>
+</footer>
+
+</body>
+</html>
