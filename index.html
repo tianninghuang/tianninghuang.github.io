@@ -19,7 +19,8 @@
     background:var(--paper);
     color:var(--ink);
     font-family:'Georgia','Times New Roman',serif;
-    line-height:1.6;
+    line-height:1.65;
+    font-size:1.08rem;
   }
   a{color:inherit;}
   a:focus-visible, button:focus-visible{outline:2px solid var(--brass); outline-offset:2px;}
@@ -33,20 +34,20 @@
     background-size:32px 32px;
     background-color:var(--paper);
   }
-  header h1{font-size:clamp(2rem,5vw,3.2rem); font-weight:400; letter-spacing:-0.01em;}
-  header p.role{margin-top:0.5rem; font-family:'Courier New',monospace; font-size:0.92rem; color:var(--graphite);}
-  .header-top{display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap;}
+  header h1{font-size:clamp(2.6rem,6vw,4.2rem); font-weight:400; letter-spacing:-0.01em;}
+  header p.role{margin-top:0.6rem; font-family:'Courier New',monospace; font-size:1.15rem; color:var(--graphite);}
+  .header-top{display:flex; align-items:center; gap:2rem; flex-wrap:wrap;}
   .profile-pic{
-    width:230px; height:230px; border-radius:50%; object-fit:cover;
+    width:300px; height:300px; border-radius:50%; object-fit:cover;
     border:1px solid var(--line); flex-shrink:0;
   }
-  nav{margin-top:1.6rem; display:flex; gap:1.4rem; flex-wrap:wrap; font-family:'Courier New',monospace; font-size:0.85rem;}
+  nav{margin-top:1.8rem; display:flex; gap:1.7rem; flex-wrap:wrap; font-family:'Courier New',monospace; font-size:1rem;}
   nav a{color:var(--graphite); text-decoration:none; border-bottom:1px solid transparent;}
   nav a:hover{border-bottom-color:var(--brass); color:var(--brass);}
 
   section{max-width:1040px; margin:0 auto; padding:3.4rem 6vw;}
   section > h2{
-    font-size:1.1rem; font-weight:400; color:var(--brass);
+    font-size:1.3rem; font-weight:400; color:var(--brass);
     border-bottom:1px solid var(--line); padding-bottom:0.6rem; margin-bottom:2rem;
   }
   .about p{max-width:70ch;}
@@ -66,11 +67,11 @@
 
   .project-block{margin-bottom:3.2rem;}
   .project-block:last-child{margin-bottom:0;}
-  .project-block h3{font-weight:400; font-size:1.25rem; margin-bottom:0.3rem;}
+  .project-block h3{font-weight:400; font-size:1.4rem; margin-bottom:0.3rem;}
   .project-block .meta{
-    font-family:'Courier New',monospace; font-size:0.8rem; color:var(--graphite); margin-bottom:0.6rem;
+    font-family:'Courier New',monospace; font-size:0.88rem; color:var(--graphite); margin-bottom:0.6rem;
   }
-  .project-block p.desc{max-width:70ch; margin-bottom:1.1rem; font-size:0.97rem;}
+  .project-block p.desc{max-width:70ch; margin-bottom:1.1rem; font-size:1.05rem;}
   .project-block .links{margin-bottom:1.1rem; font-family:'Courier New',monospace; font-size:0.82rem;}
   .project-block .links a{border-bottom:1px solid var(--line); margin-right:1rem;}
   .project-block .links a:hover{color:var(--brass); border-bottom-color:var(--brass);}
