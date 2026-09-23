@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tianning Huang</title>
+<title>Tianning Huang — Portfolio</title>
 <style>
   :root{
     --ink:#1c2226;
@@ -11,20 +11,21 @@
     --line:#c9cdd0;
     --brass:#a8631f;
     --graphite:#3a4750;
+    --card:#ffffff;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{
     background:var(--paper);
     color:var(--ink);
-    font-family:'Georgia', 'Times New Roman', serif;
+    font-family:'Georgia','Times New Roman',serif;
     line-height:1.6;
   }
   a{color:inherit;}
   a:focus-visible, button:focus-visible{outline:2px solid var(--brass); outline-offset:2px;}
 
   header{
-    padding:5rem 6vw 3rem;
+    padding:4.5rem 6vw 2.6rem;
     border-bottom:1px solid var(--line);
     background-image:
       linear-gradient(var(--line) 1px, transparent 1px),
@@ -32,120 +33,117 @@
     background-size:32px 32px;
     background-color:var(--paper);
   }
-  header h1{
-    font-size:clamp(2.2rem, 5vw, 3.4rem);
-    font-weight:400;
-    letter-spacing:-0.01em;
+  header h1{font-size:clamp(2rem,5vw,3.2rem); font-weight:400; letter-spacing:-0.01em;}
+  header p.role{margin-top:0.5rem; font-family:'Courier New',monospace; font-size:0.92rem; color:var(--graphite);}
+  .header-top{display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap;}
+  .profile-pic{
+    width:110px; height:110px; border-radius:50%; object-fit:cover;
+    border:1px solid var(--line); flex-shrink:0;
   }
-  header p.role{
-    margin-top:0.6rem;
-    font-family:'Courier New', monospace;
-    font-size:0.95rem;
-    color:var(--graphite);
-  }
-  nav{
-    margin-top:1.8rem;
-    display:flex;
-    gap:1.4rem;
-    flex-wrap:wrap;
-    font-family:'Courier New', monospace;
-    font-size:0.85rem;
-  }
-  nav a{
-    color:var(--graphite);
-    text-decoration:none;
-    border-bottom:1px solid transparent;
-  }
+  nav{margin-top:1.6rem; display:flex; gap:1.4rem; flex-wrap:wrap; font-family:'Courier New',monospace; font-size:0.85rem;}
+  nav a{color:var(--graphite); text-decoration:none; border-bottom:1px solid transparent;}
   nav a:hover{border-bottom-color:var(--brass); color:var(--brass);}
 
-  section{
-    max-width:780px;
-    margin:0 auto;
-    padding:3.4rem 6vw;
+  section{max-width:1040px; margin:0 auto; padding:3.4rem 6vw;}
+  section > h2{
+    font-size:1.1rem; font-weight:400; color:var(--brass);
+    border-bottom:1px solid var(--line); padding-bottom:0.6rem; margin-bottom:2rem;
   }
-  section h2{
-    font-size:1.1rem;
-    font-weight:400;
-    color:var(--brass);
-    border-bottom:1px solid var(--line);
-    padding-bottom:0.6rem;
-    margin-bottom:1.6rem;
-  }
-  .about p{max-width:64ch;}
+  .about p{max-width:70ch;}
 
-  .project{
-    padding:1.5rem 0;
-    border-bottom:1px solid var(--line);
+  .project-block{margin-bottom:3.2rem;}
+  .project-block:last-child{margin-bottom:0;}
+  .project-block h3{font-weight:400; font-size:1.25rem; margin-bottom:0.3rem;}
+  .project-block .meta{
+    font-family:'Courier New',monospace; font-size:0.8rem; color:var(--graphite); margin-bottom:0.6rem;
   }
-  .project:last-child{border-bottom:none;}
-  .project h3{font-weight:400; font-size:1.15rem;}
-  .project .meta{
-    font-family:'Courier New', monospace;
-    font-size:0.82rem;
-    color:var(--graphite);
-    margin:0.35rem 0 0.6rem;
-  }
-  .project ul{max-width:64ch; padding-left:1.1rem;}
-  .project li{margin-bottom:0.3rem;}
+  .project-block p.desc{max-width:70ch; margin-bottom:1.1rem; font-size:0.97rem;}
+  .project-block .links{margin-bottom:1.1rem; font-family:'Courier New',monospace; font-size:0.82rem;}
+  .project-block .links a{border-bottom:1px solid var(--line); margin-right:1rem;}
+  .project-block .links a:hover{color:var(--brass); border-bottom-color:var(--brass);}
 
-  .exp-item{padding:1.1rem 0; border-bottom:1px solid var(--line);}
-  .exp-item:last-child{border-bottom:none;}
-  .exp-item h3{font-weight:400; font-size:1.05rem;}
-  .exp-item .meta{
-    font-family:'Courier New', monospace;
-    font-size:0.8rem;
-    color:var(--graphite);
-    margin-top:0.2rem;
-  }
-  .exp-item p{max-width:64ch; margin-top:0.4rem; font-size:0.97rem;}
-
-  .edu .meta{
-    font-family:'Courier New', monospace;
-    font-size:0.82rem;
-    color:var(--graphite);
-    margin:0.3rem 0 0.8rem;
-  }
-  .edu p{max-width:64ch; font-size:0.95rem;}
-
-  .skills-grid{
+  .gallery{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:1.6rem;
+    grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+    gap:0.7rem;
   }
-  .skills-grid h4{
-    font-weight:400;
-    font-size:0.85rem;
-    color:var(--brass);
-    font-family:'Courier New', monospace;
-    margin-bottom:0.5rem;
+  .gallery button{
+    all:unset;
+    cursor:pointer;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--card);
+    position:relative;
   }
-  .skills-grid ul{list-style:none; font-size:0.92rem;}
-  .skills-grid li{margin-bottom:0.25rem;}
-  @media (max-width:600px){
-    .skills-grid{grid-template-columns:1fr;}
+  .gallery button img, .gallery button video{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform 0.25s ease;
   }
+  .gallery button:hover img, .gallery button:hover video{transform:scale(1.04);}
+  .gallery button .cap{
+    position:absolute; left:0; right:0; bottom:0;
+    background:linear-gradient(transparent, rgba(28,34,38,0.82));
+    color:#f6f5f1; font-family:'Courier New',monospace; font-size:0.72rem;
+    padding:1.2rem 0.5rem 0.4rem; text-align:left;
+  }
+  .gallery button .playbadge{
+    position:absolute; top:0.4rem; right:0.4rem;
+    background:rgba(28,34,38,0.75); color:#f6f5f1;
+    font-family:'Courier New',monospace; font-size:0.65rem;
+    padding:0.15rem 0.4rem;
+  }
+
+  .skills-grid{display:grid; grid-template-columns:1fr 1fr; gap:1.6rem;}
+  @media (max-width:640px){.skills-grid{grid-template-columns:1fr;}}
+  .skills-grid figure{border:1px solid var(--line); background:var(--card);}
+  .skills-grid img{width:100%; display:block; aspect-ratio:4/3; object-fit:cover;}
+  .skills-grid figcaption{padding:0.8rem 1rem; font-family:'Courier New',monospace; font-size:0.85rem;}
+  .skills-grid figcaption b{display:block; font-family:Georgia,serif; font-size:1rem; margin-bottom:0.2rem; font-weight:400;}
 
   footer{
-    padding:3rem 6vw 4rem;
-    max-width:780px;
-    margin:0 auto;
-    font-family:'Courier New', monospace;
-    font-size:0.9rem;
+    padding:3rem 6vw 4rem; max-width:1040px; margin:0 auto;
+    font-family:'Courier New',monospace; font-size:0.9rem;
   }
   footer a{border-bottom:1px solid var(--line);}
   footer a:hover{color:var(--brass); border-bottom-color:var(--brass);}
+
+  /* Lightbox */
+  #lightbox{
+    display:none; position:fixed; inset:0; background:rgba(20,24,27,0.94);
+    z-index:100; align-items:center; justify-content:center; padding:4vh 4vw;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox .frame{max-width:1100px; width:100%; max-height:92vh; display:flex; flex-direction:column; gap:0.8rem;}
+  #lightbox .media-wrap{flex:1; display:flex; align-items:center; justify-content:center; min-height:0;}
+  #lightbox img, #lightbox video{max-width:100%; max-height:72vh; object-fit:contain;}
+  #lightbox .cap-text{color:#f6f5f1; font-family:'Courier New',monospace; font-size:0.88rem; text-align:center;}
+  #lightbox .close-btn, #lightbox .nav-btn{
+    all:unset; cursor:pointer; color:#f6f5f1; font-family:'Courier New',monospace;
+  }
+  #lightbox .close-btn{position:absolute; top:1.5rem; right:2rem; font-size:1.6rem;}
+  #lightbox .nav-btn{
+    position:absolute; top:50%; transform:translateY(-50%); font-size:2.2rem; padding:0.5rem 1rem;
+  }
+  #lightbox .nav-btn.prev{left:1rem;}
+  #lightbox .nav-btn.next{right:1rem;}
+  #lightbox .counter{color:#a3adb3; font-family:'Courier New',monospace; font-size:0.75rem; text-align:center;}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Tianning Huang</h1>
-  <p class="role">Mechanical Engineering, UC Berkeley &mdash; Robotics / Controls / Materials Research</p>
+  <div class="header-top">
+    <img src="profilepicture.JPG" alt="Tianning Huang" class="profile-pic">
+    <div>
+      <h1>Tianning Huang</h1>
+      <p class="role">Mechanical Engineering, UC Berkeley — Portfolio &amp; Visual Documentation</p>
+    </div>
+  </div>
   <nav>
     <a href="#about">About</a>
+    <a href="#research">Research</a>
     <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -154,156 +152,248 @@
 <section class="about" id="about">
   <h2>About</h2>
   <p>
-    I'm a mechanical engineering senior at UC Berkeley (graduating May 2026), interested in
-    mechanical systems, robotics, controls, materials, and research. I like taking a problem
-    from sketch to working hardware &mdash; from FEA on a race car steering mount to segmenting
-    3D microstructure in X-ray CT scans to building a robotic puppet that plays traditional
-    Indonesian gamelan music.
+    This page is a visual companion to my resume — a gallery of the CAD models, FEA results,
+    lab data, embedded systems, and mechanisms I've built and tested. Click any image or video
+    to view it larger with notes on what it shows.
   </p>
 </section>
 
-<section class="projects" id="projects">
+<section id="research">
+  <h2>Research</h2>
+
+  <div class="project-block">
+    <h3>FLOWLab — X-ray CT Segmentation of Airborne Virus Residues</h3>
+    <div class="meta">Undergraduate Researcher, FLOWLab · MATLAB · ORS Dragonfly · Napari · Feb 2025 – Present</div>
+    <p class="desc">
+      Investigating SARS-CoV-2-containing respiratory droplet residues using X-ray CT
+      microtomography. Built an end-to-end MATLAB pipeline turning raw multi-spectral CT
+      slices into material composition and energy-level data, and performed 3D segmentation
+      of bacterial structures across consecutive slices.
+    </p>
+    <div class="links">
+      <a href="assets/docs/flowlab-tianning-huang.docx">Full write-up (.docx)</a>
+    </div>
+    <div class="gallery" data-project="flowlab"></div>
+  </div>
+</section>
+
+<section id="projects">
   <h2>Projects</h2>
 
-  <div class="project">
-    <h3>Robotic Gamelan Puppet</h3>
-    <div class="meta">Undergraduate Researcher, The Gamelan Project (URAP) &middot; Blender &middot; CAD &middot; Feb 2026 &ndash; Present</div>
-    <ul>
-      <li>Designing and prototyping a robotic puppet to autonomously perform traditional Indonesian gamelan music, translating musical mechanics into an automated system.</li>
-      <li>Modeled and CAD'd the puppet hand assembly in Blender to enable precise, controlled striking motion for instrument performance.</li>
-    </ul>
+  <div class="project-block">
+    <h3>The Gamelan Project — Robotic Puppet</h3>
+    <div class="meta">Undergraduate Researcher (URAP) · Blender · CAD · Feb 2026 – Present</div>
+    <p class="desc">
+      Designing and prototyping a robotic puppet to autonomously perform traditional Indonesian
+      gamelan music. Modeled and CAD'd the puppet hand assembly in Blender to enable precise,
+      controlled striking motion.
+    </p>
+    <div class="gallery" data-project="gamelan"></div>
   </div>
 
-  <div class="project">
-    <h3>CalSol Excalibur &mdash; Steering Rack Redesign</h3>
-    <div class="meta">UC Berkeley Solar Vehicle Team &middot; SolidWorks &middot; ANSYS (FEA) &middot; CNC &middot; Aug 2024 &ndash; Feb 2025</div>
-    <ul>
-      <li>Redesigned the steering mount for insufficient stiffness and inaccessibility, running case analysis across crash forces, cornering torque, and bump loading.</li>
-      <li>Shifted from torque/force-based load cases to a remote load case to more accurately capture torsional effects on the mounting holes.</li>
-      <li>Ran FEA with a 2000N bearing load to replicate maximum shear conditions, holding a safety factor of 1.1 while cutting weight by about 22.5%.</li>
-      <li>CNC-milled the mount from 2024 T351 aluminum and lathed inserts from 7075 aluminum; installed the full assembly on the race car.</li>
-    </ul>
+  <div class="project-block">
+    <h3>CalSol Excalibur — Steering Rack Redesign</h3>
+    <div class="meta">UC Berkeley Solar Vehicle Team · SolidWorks · ANSYS (FEA) · CNC · Aug 2024 – Feb 2025</div>
+    <p class="desc">
+      Redesigned the steering mount for insufficient stiffness and inaccessibility. Iterated
+      insert geometry across a failed one-hole design, a passing three-hole design, and the
+      final resultant part — cutting weight ~22.5% while holding a safety factor of 1.1 under FEA.
+    </p>
+    <div class="gallery" data-project="calsol"></div>
   </div>
 
-  <div class="project">
-    <h3>X-ray CT Segmentation of Airborne Virus Residues</h3>
-    <div class="meta">Undergraduate Researcher, FLOWLab &middot; MATLAB &middot; ORS Dragonfly &middot; Napari &middot; Feb 2025 &ndash; Present</div>
-    <ul>
-      <li>Investigating SARS-CoV-2-containing respiratory droplet residues using X-ray CT microtomography to characterize crystalline and organic microstructure.</li>
-      <li>Built an end-to-end MATLAB pipeline turning raw multi-spectral CT slices into material composition and energy-level data, using a regularized least-squares method to estimate volume fractions.</li>
-      <li>Performed 3D segmentation of bacterial structures across consecutive CT slices to generate training data for machine-learning-based segmentation.</li>
-    </ul>
-  </div>
-
-  <div class="project">
+  <div class="project-block">
     <h3>Real-Time Health Monitoring Wearable</h3>
-    <div class="meta">LabVIEW &middot; FreeRTOS &middot; Embedded Systems &middot; Jan 2025 &ndash; May 2025</div>
-    <ul>
-      <li>Designed a wearable integrating a MAX30102 PPG sensor, MPU6050 IMU, and LDR sensor for real-time physiological data acquisition.</li>
-      <li>Implemented a multitask FreeRTOS system running periodic real-time tasks: 100&nbsp;Hz heart-rate sampling and 50&nbsp;Hz motion sensing.</li>
-      <li>Built a LabVIEW GUI for live visualization of heart rate (BPM), SpO&#8322;, and motion metrics.</li>
-    </ul>
+    <div class="meta">LabVIEW · FreeRTOS · Embedded Systems · Jan 2025 – May 2025</div>
+    <p class="desc">
+      Wearable integrating a MAX30102 PPG sensor, MPU6050 IMU, and LDR sensor, running a
+      multitask FreeRTOS system (100 Hz heart-rate sampling, 50 Hz motion sensing) with a
+      LabVIEW GUI for live visualization of heart rate, SpO₂, and motion metrics.
+    </p>
+    <div class="gallery" data-project="wearable"></div>
   </div>
 
-  <div class="project">
-    <h3>Smart Fridge Tracker</h3>
-    <div class="meta">IoT &middot; ESP32 &middot; MicroPython &middot; Firebase &middot; Aug 2024 &ndash; Dec 2024</div>
-    <ul>
-      <li>Built an ESP32 system to monitor fridge temperature, humidity, and door status using DHT11 and photoresistor sensors.</li>
-      <li>Used Google Firebase for real-time data logging and expiration-date tracking.</li>
-      <li>Designed a MicroPython web server for logging food items, with automated alerts via email, OLED display, LEDs, and speaker.</li>
-    </ul>
+  <div class="project-block">
+    <h3>TPMS Lattice — Conjugate Heat Transfer</h3>
+    <div class="meta">Thermal / Fluids · CFD · Lattice Structures</div>
+    <p class="desc">
+      Studied triply periodic minimal surface (TPMS) lattice geometry for heat exchanger
+      applications, modeling conjugate heat transfer and comparing conduction results against
+      thermal camera imaging.
+    </p>
+    <div class="gallery" data-project="tpms"></div>
   </div>
 
-  <div class="project">
-    <h3>CalSol Skid Modeling &amp; Welding / Pedal Box</h3>
-    <div class="meta">UC Berkeley Solar Vehicle Team &middot; SolidWorks &middot; Welding &middot; Nov 2024 &ndash; Aug 2025</div>
-    <ul>
-      <li>3D-modeled and welded the skid to fit the mold of the 11th-generation electric race car shell.</li>
-      <li>Designed and manufactured the pedal box assembly, including pedals and integration with the brake components.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="experience" id="experience">
-  <h2>Experience</h2>
-
-  <div class="exp-item">
-    <h3>Tutor / Reader &mdash; ME 132 (Dynamic Systems &amp; Feedback Control), ME 102B (Mechatronics Design)</h3>
-    <div class="meta">UC Berkeley Mechanical Engineering &middot; Jun 2026 &ndash; Present</div>
-    <p>Grade and evaluate student work in dynamic systems and controls; assist with mechatronics lab activities and give technical feedback on design, troubleshooting, and project execution.</p>
+  <div class="project-block">
+    <h3>Smart Fridge — IoT Tracker</h3>
+    <div class="meta">ESP32 · MicroPython · Firebase (Real-Time Database) · Aug 2024 – Dec 2024</div>
+    <p class="desc">
+      ESP32 system monitoring fridge temperature, humidity, and door status via DHT11 and
+      photoresistor sensors, logging to Firebase in real time with automated expiration alerts.
+    </p>
+    <div class="gallery" data-project="fridge"></div>
   </div>
 
-  <div class="exp-item">
-    <h3>Teaching Assistant</h3>
-    <div class="meta">UC Berkeley M.E.T. Program &middot; May 2025 &ndash; Present</div>
-    <p>Selected as one of six UC Berkeley students to support a summer program for high schoolers in tech and entrepreneurship. Co-developed lesson plans and led sessions on design and manufacturing, guiding students from ideation through prototyping to a panel presentation.</p>
-  </div>
-
-  <div class="exp-item">
-    <h3>Student Ambassador</h3>
-    <div class="meta">Autodesk &middot; May 2025 &ndash; Present</div>
-    <p>Representing Autodesk on campus, connecting students with CAD and design tools used across the engineering program.</p>
+  <div class="project-block">
+    <h3>Reforestation Seed Delivery Drone</h3>
+    <div class="meta">Mechanism Design · CAD</div>
+    <p class="desc">
+      Drone-mounted mechanism for aerial seed delivery, designed to reliably meter and release
+      seed payloads for reforestation. Video below shows the completed mechanism in operation.
+    </p>
+    <div class="gallery" data-project="drone"></div>
   </div>
 </section>
 
-<section class="edu" id="education">
-  <h2>Education</h2>
-  <h3 style="font-weight:400; font-size:1.1rem;">University of California, Berkeley</h3>
-  <div class="meta">Bachelor of Engineering, Mechanical Engineering &middot; Expected May 2026</div>
-  <p>
-    Relevant coursework: Microfabrication Processing, Three-Dimensional Modeling for Design,
-    Manufacturing and Design Communication, Fluid Mechanics, Heat Transfer, Dynamic Systems
-    and Feedback Control, Electronics for the Internet of Things, Design of Microprocessor-Based
-    Mechanical Systems, Deformation and Fracture of Engineering Materials.
-  </p>
-</section>
-
-<section class="skills" id="skills">
+<section id="skills">
   <h2>Skills</h2>
   <div class="skills-grid">
-    <div>
-      <h4>CAD &amp; Simulation</h4>
-      <ul>
-        <li>SolidWorks</li>
-        <li>Fusion 360</li>
-        <li>Blender</li>
-        <li>Onshape</li>
-        <li>ANSYS (FEA)</li>
-        <li>GD&amp;T</li>
-        <li>WM2D</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Manufacturing</h4>
-      <ul>
-        <li>CNC</li>
-        <li>Lathe</li>
-        <li>Milling</li>
-        <li>Welding</li>
-        <li>3D Printing</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Programming</h4>
-      <ul>
-        <li>Python</li>
-        <li>MATLAB</li>
-        <li>Java</li>
-        <li>LabVIEW</li>
-      </ul>
-    </div>
+    <figure>
+      <img src="assets/gdt.png" alt="GD&amp;T drawing example" loading="lazy">
+      <figcaption><b>GD&amp;T &amp; Tolerancing</b>Applying geometric dimensioning and tolerancing to manufacturing drawings for fit and function.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/microfabrication-processing.png" alt="Microfabrication process flow" loading="lazy">
+      <figcaption><b>Microfabrication</b>Silicon chip fabrication process flow from coursework in microfabrication processing.</figcaption>
+    </figure>
   </div>
 </section>
 
 <footer id="contact">
   <p>
     <a href="mailto:tianningh@berkeley.edu">tianningh@berkeley.edu</a>
-    &nbsp;&middot;&nbsp; (951) 404-6070
-    &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/tianning-huang-10189a31b/">LinkedIn</a>
-    &nbsp;&middot;&nbsp; <a href="https://github.com/tianninghuang">GitHub</a>
+    &nbsp;·&nbsp; (951) 404-6070
+    &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/tianning-huang-10189a31b/">LinkedIn</a>
+    &nbsp;·&nbsp; <a href="https://github.com/tianninghuang">GitHub</a>
+    &nbsp;·&nbsp; <a href="index.html">Resume version</a>
   </p>
 </footer>
+
+<div id="lightbox">
+  <button class="close-btn" id="lb-close" aria-label="Close">&times;</button>
+  <button class="nav-btn prev" id="lb-prev" aria-label="Previous">&#8249;</button>
+  <div class="frame">
+    <div class="media-wrap" id="lb-media"></div>
+    <p class="cap-text" id="lb-caption"></p>
+    <p class="counter" id="lb-counter"></p>
+  </div>
+  <button class="nav-btn next" id="lb-next" aria-label="Next">&#8250;</button>
+</div>
+
+<script>
+// ---- Image/video data per project. Edit filenames + captions here. ----
+const projects = {
+  flowlab: [
+    {src:"assets/material-energy.png", caption:"Material / energy-level decomposition from multi-spectral X-ray CT data."},
+    {src:"assets/meanmatrix.png", caption:"Mean matrix output from the segmentation pipeline."},
+    {src:"assets/top-down-view.png", caption:"Top-down view of segmented 3D microstructure."},
+    {src:"assets/all-together-good.png", caption:"Combined segmentation result across structures."},
+    {src:"assets/cross-section.png", caption:"Cross-sectional slice showing crystalline vs. organic regions."}
+  ],
+  gamelan: [
+    {src:"assets/puppet.png", caption:"Robotic gamelan puppet — full assembly."},
+    {src:"assets/motor.png", caption:"Motor and drive mechanism for the striking arm."},
+    {src:"assets/gamelanhand.png", caption:"Puppet hand assembly, CAD'd in Blender for controlled striking motion."}
+  ],
+  calsol: [
+    {src:"assets/insert-old.png", caption:"Original insert design — starting point before redesign."},
+    {src:"assets/one-hole-bottom-fail.png", caption:"One-hole bottom insert — failed under FEA loading."},
+    {src:"assets/three-hole-bottom-pass.png", caption:"Three-hole bottom insert — passed FEA with required safety factor."},
+    {src:"assets/insert-location.png", caption:"Insert placement on the steering mount."},
+    {src:"assets/insert-location-2.png", caption:"Insert placement, alternate view."},
+    {src:"assets/insert-male-female-component.png", caption:"Male/female insert component detail."},
+    {src:"assets/resultant-design.png", caption:"Final resultant steering mount design — ~22.5% weight reduction."}
+  ],
+  wearable: [
+    {src:"assets/health-monitoring-wearable.png", caption:"Wearable hardware — PPG, IMU, and LDR sensor integration."},
+    {src:"assets/health-monitoring-wearable-labview.png", caption:"LabVIEW GUI for real-time heart rate, SpO₂, and motion visualization."}
+  ],
+  tpms: [
+    {src:"assets/tpms.png", caption:"TPMS lattice geometry."},
+    {src:"assets/thermal-camera.png", caption:"Thermal camera imaging of the physical sample."},
+    {src:"assets/heat.png", caption:"Heat transfer visualization."},
+    {src:"assets/conductionresults.png", caption:"Conduction simulation results."},
+    {src:"assets/conjugate-heat-transfer.png", caption:"Conjugate heat transfer simulation, view 1."},
+    {src:"assets/conjugate-heat-transfer-2.png", caption:"Conjugate heat transfer simulation, view 2."}
+  ],
+  fridge: [
+    {src:"assets/iot-database.png", caption:"Firebase real-time database logging temperature, humidity, and door status."},
+    {src:"assets/iot.jpg", caption:"ESP32 smart fridge tracker hardware."}
+  ],
+  drone: [
+    {src:"assets/mechanism-complete-demo.mp4", caption:"Completed seed-release mechanism in operation.", video:true},
+    {src:"assets/dronecad.png", caption:"Drone mechanism CAD model."},
+    {src:"assets/dronecomponent.png", caption:"Individual mechanism component detail."}
+  ]
+};
+
+// ---- Build gallery thumbnails ----
+document.querySelectorAll(".gallery").forEach(galleryEl => {
+  const key = galleryEl.dataset.project;
+  const items = projects[key] || [];
+  items.forEach((item, i) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    if(item.video){
+      btn.innerHTML = `<video src="${item.src}" muted playsinline preload="metadata"></video>
+        <span class="playbadge">▶ video</span>
+        <span class="cap">${item.caption}</span>`;
+    } else {
+      btn.innerHTML = `<img src="${item.src}" alt="${item.caption}" loading="lazy">
+        <span class="cap">${item.caption}</span>`;
+    }
+    btn.addEventListener("click", () => openLightbox(key, i));
+    galleryEl.appendChild(btn);
+  });
+});
+
+// ---- Lightbox logic ----
+const lb = document.getElementById("lightbox");
+const lbMedia = document.getElementById("lb-media");
+const lbCaption = document.getElementById("lb-caption");
+const lbCounter = document.getElementById("lb-counter");
+let currentProject = null;
+let currentIndex = 0;
+
+function openLightbox(projectKey, index){
+  currentProject = projectKey;
+  currentIndex = index;
+  renderLightbox();
+  lb.classList.add("open");
+}
+
+function renderLightbox(){
+  const items = projects[currentProject];
+  const item = items[currentIndex];
+  lbMedia.innerHTML = item.video
+    ? `<video src="${item.src}" controls autoplay></video>`
+    : `<img src="${item.src}" alt="${item.caption}">`;
+  lbCaption.textContent = item.caption;
+  lbCounter.textContent = `${currentIndex + 1} / ${items.length}`;
+}
+
+function closeLightbox(){
+  lb.classList.remove("open");
+  lbMedia.innerHTML = "";
+}
+
+function step(delta){
+  const items = projects[currentProject];
+  currentIndex = (currentIndex + delta + items.length) % items.length;
+  renderLightbox();
+}
+
+document.getElementById("lb-close").addEventListener("click", closeLightbox);
+document.getElementById("lb-prev").addEventListener("click", () => step(-1));
+document.getElementById("lb-next").addEventListener("click", () => step(1));
+lb.addEventListener("click", e => { if(e.target === lb) closeLightbox(); });
+document.addEventListener("keydown", e => {
+  if(!lb.classList.contains("open")) return;
+  if(e.key === "Escape") closeLightbox();
+  if(e.key === "ArrowRight") step(1);
+  if(e.key === "ArrowLeft") step(-1);
+});
+</script>
 
 </body>
 </html>
