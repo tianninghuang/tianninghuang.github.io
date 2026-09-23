@@ -50,6 +50,25 @@
     border-bottom:1px solid var(--line); padding-bottom:0.6rem; margin-bottom:2rem;
   }
   .about p{max-width:70ch;}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 300px;
+    gap:2.4rem;
+    align-items:start;
+  }
+  .about-grid p{max-width:none;}
+  .about-figure{border:1px solid var(--line); background:var(--card);}
+  .about-figure img{width:100%; display:block;}
+  .about-figure figcaption{
+    padding:0.7rem 0.9rem;
+    font-family:'Courier New',monospace;
+    font-size:0.78rem;
+    color:var(--graphite);
+  }
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;}
+    .about-figure{max-width:340px;}
+  }
 
   .project-block{margin-bottom:3.2rem;}
   .project-block:last-child{margin-bottom:0;}
@@ -159,18 +178,24 @@
 
 <section class="about" id="about">
   <h2>About</h2>
-  <p>
-    Welcome! This page presents an overview of my academic and professional background as a senior
-    Mechanical Engineering student (minoring in Electrical Engineering) at UC Berkeley, with
-    experience in mechanical design, CAD/FEA, materials engineering, robotics, control systems,
-    micro-fabrication processing, and manufacturing. I bring strong analytical and
-    problem-solving skills, along with experience in MATLAB, Python, LabVIEW, Fusion 360,
-    SolidWorks, and experimental research. I am mission-driven, curious, and eager to learn, 
-    constantly seeking out new challenges that push me beyond what I already know. I thrive in 
-    environments where engineers bring different perspectives, challenge one another, and work together
-    to build something meaningful. Explore my projects and research below to see what I have built, 
-    investigated, and learned along the way.
-  </p>
+  <div class="about-grid">
+    <p>
+      Welcome! This page presents an overview of my academic and professional background as a senior
+      Mechanical Engineering student (minoring in Electrical Engineering) at UC Berkeley, with
+      experience in mechanical design, CAD/FEA, materials engineering, robotics, control systems,
+      micro-fabrication processing, and manufacturing. I bring strong analytical and
+      problem-solving skills, along with experience in MATLAB, Python, LabVIEW, Fusion 360,
+      SolidWorks, and experimental research. I am mission-driven, curious, and eager to learn, 
+      constantly seeking out new challenges that push me beyond what I already know. I thrive in 
+      environments where engineers bring different perspectives, challenge one another, and work together
+      to build something meaningful. Explore my projects and research below to see what I have built, 
+      investigated, and learned along the way.
+    </p>
+    <figure class="about-figure">
+      <img src="berkeley-engineering-post.png" alt="UC Berkeley Engineering feature post">
+      <figcaption>Featured in UC Berkeley Engineering's "@ Me" series.</figcaption>
+    </figure>
+  </div>
 </section>
 
 <section id="research">
@@ -183,7 +208,7 @@
       Investigating SARS-CoV-2-containing respiratory droplet residues using X-ray CT
       microtomography. Built an end-to-end MATLAB pipeline turning raw multi-spectral CT
       slices into material composition and energy-level data, and performed 3D segmentation
-      of image processing.
+      of bacterial structures across consecutive slices.
     </p>
     <div class="links">
       <a href="./docs:flowlab-tianning-huang.docx">Full write-up (.docx)</a>
