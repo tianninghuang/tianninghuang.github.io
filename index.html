@@ -272,8 +272,26 @@
     <h3>Reforestation Seed Delivery Drone</h3>
     <div class="meta">Mechanism Design · CAD</div>
     <p class="desc">
-      Drone mounted mechanism for aerial seed delivery, designed to reliably meter and release
-      seed payloads for reforestation. Video below shows the completed mechanism in operation.
+      This system automates precision seed planting from the air. A DJI S1000 hexacopter
+      carries a custom dual-actuator payload: an ultrasonic proximity sensor detects ground
+      approach and triggers an ESP32-driven finite state machine once the drone descends
+      below 0.3 m altitude. A servo-driven drill (3.3:1 spur gear reduction, 0.74 N·m peak
+      torque) bores a planting pocket into the soil, after which a second servo rotates a
+      metering auger exactly one revolution, gravity-feeding a single seed through the hollow
+      drill shaft to deposit depth. The drill then retracts, and the drone advances
+      autonomously to the next site.
+    </p>
+    <p class="desc">
+      The mechanism weighs under 400 g and integrates into a 3 kg total airframe with a
+      2.35:1 thrust-to-weight ratio, enabling reliable flight while carrying enough seed
+      capacity for extended missions. A hardware limit switch provides a mechanical interlock
+      against mid-flight actuation, and a manual abort trigger forces immediate emergency
+      landing.
+    </p>
+    <p class="desc">
+      By placing seeds under the soil surface rather than scattering them on top, this
+      approach targets substantially higher germination rates than conventional aerial
+      seeding — at a fraction of the cost of manual reforestation.
     </p>
     <div class="gallery" data-project="drone"></div>
   </div>
@@ -288,7 +306,7 @@
     </figure>
     <figure>
       <img src="microfabrication-processing.png" alt="Microfabrication process flow" loading="lazy">
-      <figcaption><b>Microfabrication</b>Silicon chip fabrication process flow from coursework in microfabrication processing.</figcaption>
+      <figcaption><b>Microfabrication</b>Carried a silicon wafer through the front-end of a MOSFET process flow: active-area photolithography and BHF etch, gate oxide growth (dry oxidation, ~1000 Å), and phosphorus-doped polysilicon deposition — with etch timing, oxide thickness, and resistivity verified at each stage.</figcaption>
     </figure>
   </div>
 </section>
@@ -355,7 +373,7 @@ const projects = {
     {src:"iot.jpg", caption:"ESP32 smart fridge tracker hardware, featuring two ESP32 microcontrollers that communicate wirelessly with each other."}
   ],
   drone: [
-    {src:"mechanism-complete-demo.mp4", caption:"Completed seed-release mechanism in operation.", video:true},
+    {src:"mechanism-complete-demo.mp4", caption:"The drone flies to the target site and hovers above it. As it descends, an ultrasonic sensor continuously measures distance to the ground; once it gets within about 30 cm, the sensor detects this and automatically triggers landing. A servo-driven drill then spins down into the soil, boring a small planting pocket. Once deep enough, the drill stops and a second servo rotates a seed dispenser exactly one turn, dropping a single seed through the hollow drill shaft into the hole. The drill then reverses and retracts. With the seed planted, the drone lifts off and moves to the next site — all fully autonomous, run by an onboard microcontroller. At any point during the sequence, a manual emergency stop button can be pressed to immediately abort the mission and force the drone into a safe landing, acting as a hardware safety interlock independent of the automated flow.", video:true},
     {src:"dronecad.png", caption:"Drone mechanism CAD model."},
     {src:"dronecomponent.png", caption:"Individual mechanism component detail."}
   ]
