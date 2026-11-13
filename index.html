@@ -244,12 +244,23 @@
   </div>
 
   <div class="project-block">
-    <h3>MOSFET Fabrication — Electrical Characterization</h3>
-    <div class="meta">Microfabrication · Probe Station · 4-Point Resistor Measurement</div>
+    <h3>EE143 NMOS Fabrication &amp; Electrical Characterization</h3>
+    <div class="meta">EE143 Microfabrication Technology · UC Berkeley NanoLab · Photolithography · Thermal Oxidation · Probe Station · Fall 2026</div>
     <p class="desc">
-      Fabricated test structures on a silicon wafer and characterized them electrically on a
-      probe station, including four-point resistor measurements to extract sheet resistance
-      from I vs. ΔV data.
+      Fabricated an NMOS test chip on a 3-inch p-type silicon wafer in the UC Berkeley NanoLab
+      cleanroom, working through the full ten-step EE143 process: active-area (ACTV)
+      photolithography and buffered-HF etch, dry gate oxidation (~1000 Å target), polysilicon
+      gate (POLY) patterning with a self-aligned gate etch, phosphorus spin-on-glass source/drain
+      doping, dopant drive-in with wet intermediate oxidation, contact-hole (CONT) patterning,
+      aluminum evaporation, and metal (METL) patterning followed by a forming-gas sinter. 
+    </p>
+    <p class="desc">
+      Each lithography layer was aligned to the previous one on a contact aligner, and control
+      wafers were used to track oxide thickness and doped-layer resistivity with a four-point
+      probe. The finished devices were then characterized on a probe station, including
+      four-point measurements of the diffusion and polysilicon resistors (2a and 2b): current is
+      forced through the outer probes and I is plotted against &Delta;V, the difference between
+      the two voltages measured across the inner probes, with the slope giving the resistance.
     </p>
     <div class="gallery" data-project="microfab"></div>
   </div>
@@ -364,9 +375,9 @@ const projects = {
     {src:"health-monitoring-wearable-labview.png", caption:"LabVIEW GUI for real-time heart rate, SpO₂, and motion visualization."}
   ],
   microfab: [
-    {src:"microfabrication-processing.png", caption:"Front-end MOSFET process flow: active-area photolithography and BHF etch, gate oxide growth (dry oxidation, ~1000 Å), and phosphorus-doped polysilicon deposition — with etch timing, oxide thickness, and resistivity verified at each stage."},
-    {src:"four-point-probe-measurement.jpeg", caption:"View through the probe-station microscope: four probe tips landed on the pads of the 4-point resistor test structures (2a and 2b). Current is forced through the outer probes while voltage is measured across the inner probes; I vs. ΔV, where ΔV is the difference between the measured voltages, gives the resistance."},
-    {src:"probe-station-device.jpeg", caption:"The device under test: the wafer on the probe station chuck with the probe needles making contact."}
+    {src:"microfabrication-processing.png", caption:"Front end of the NMOS process flow: active-area photolithography and BHF etch, ~1000 Å dry gate oxide, and phosphorus-doped polysilicon deposition — with etch timing, oxide thickness, and resistivity checked at each stage."},
+    {src:"four-point-probe-measurement.jpeg", caption:"Four-point resistor measurement (structures 2a and 2b) through the probe-station microscope: four probe tips land on the pads of the EE143 chip. Current is forced through the outer probes and voltage is measured across the inner two; the slope of I vs. ΔV, where ΔV is the difference between the measured voltages, gives the resistance."},
+    {src:"probe-station-device.jpeg", caption:"The fabricated EE143 wafer on the probe station chuck, with four probe needles making contact with a single die."}
   ],
   tpms: [
     {src:"tpms.png", caption:"FRD (R30) was the only lattice to meaningfully block heat, with a 40% cooler back-face temperature."},
