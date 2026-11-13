@@ -92,7 +92,7 @@
     overflow:hidden;
   }
   .gallery button .thumb img, .gallery button .thumb video{
-    width:100%; height:100%; object-fit:cover; display:block;
+    width:100%; height:100%; object-fit:cover; object-position:center 40%; display:block;
     transition:transform 0.25s ease;
   }
   .gallery button:hover .thumb img, .gallery button:hover .thumb video{transform:scale(1.04);}
@@ -244,6 +244,17 @@
   </div>
 
   <div class="project-block">
+    <h3>MOSFET Fabrication — Electrical Characterization</h3>
+    <div class="meta">Microfabrication · Probe Station · 4-Point Resistor Measurement</div>
+    <p class="desc">
+      Fabricated test structures on a silicon wafer and characterized them electrically on a
+      probe station, including four-point resistor measurements to extract sheet resistance
+      from I vs. ΔV data.
+    </p>
+    <div class="gallery" data-project="microfab"></div>
+  </div>
+
+  <div class="project-block">
     <h3>TPMS Lattice — Conjugate Heat Transfer</h3>
     <div class="meta">Thermal / Fluids · CFD · Lattice Structures</div>
     <p class="desc">
@@ -295,14 +306,10 @@
 
 <section id="skills">
   <h2>Skills</h2>
-  <div class="skills-grid">
+  <div class="skills-grid" style="max-width:520px;">
     <figure>
       <img src="gdt.png" alt="GD&amp;T drawing example" loading="lazy">
       <figcaption><b>GD&amp;T &amp; Tolerancing</b>Applying geometric dimensioning and tolerancing to manufacturing drawings for fit and function.</figcaption>
-    </figure>
-    <figure>
-      <img src="microfabrication-processing.png" alt="Microfabrication process flow" loading="lazy">
-      <figcaption><b>Microfabrication</b>Carried a silicon wafer through the front-end of a MOSFET process flow: active-area photolithography and BHF etch, gate oxide growth (dry oxidation, ~1000 Å), and phosphorus-doped polysilicon deposition — with etch timing, oxide thickness, and resistivity verified at each stage.</figcaption>
     </figure>
   </div>
 </section>
@@ -355,6 +362,11 @@ const projects = {
   wearable: [
     {src:"health-monitoring-wearable.png", caption:"Wearable hardware — PPG, IMU, and LDR sensor integration."},
     {src:"health-monitoring-wearable-labview.png", caption:"LabVIEW GUI for real-time heart rate, SpO₂, and motion visualization."}
+  ],
+  microfab: [
+    {src:"microfabrication-processing.png", caption:"Front-end MOSFET process flow: active-area photolithography and BHF etch, gate oxide growth (dry oxidation, ~1000 Å), and phosphorus-doped polysilicon deposition — with etch timing, oxide thickness, and resistivity verified at each stage."},
+    {src:"four-point-probe-measurement.jpeg", caption:"View through the probe-station microscope: four probe tips landed on the pads of the 4-point resistor test structures (2a and 2b). Current is forced through the outer probes while voltage is measured across the inner probes; I vs. ΔV, where ΔV is the difference between the measured voltages, gives the resistance."},
+    {src:"probe-station-device.jpeg", caption:"The device under test: the wafer on the probe station chuck with the probe needles making contact."}
   ],
   tpms: [
     {src:"tpms.png", caption:"FRD (R30) was the only lattice to meaningfully block heat, with a 40% cooler back-face temperature."},
